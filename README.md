@@ -65,16 +65,17 @@ Una empresa que contrate a estos cuatro profesionales, y cuyos honorarios de ref
 Esta empresa es de gente acotada. Pero si le agregamos a Luciana dos provincias más (p.ej. Corrientes y Misiones)
 
 Hacer los tests que sean necesarios para verificar esto.  
-Se puede usar (si sabés cómo es, no te pongas a averiguar ahora) un `fixture` para definir información que se usa en varios tests dentro de un _describe file_.
+Se puede definir un ḿetodo `initialize()` (si sabés cómo es, no te pongas a averiguar ahora) para definir información que se usa en varios tests dentro de un `describe`.
 
 <br>
 
 ## Etapa 2 - solicitantes
 
-Los **solicitantes** pueden ser personas o instituciones. Nos interesa saber para cada solicitante si puede (o no) ser _atendido por un profesional_.  
+Los **solicitantes** pueden ser personas o instituciones o clubes. Nos interesa saber para cada solicitante si puede (o no) ser _atendido por un profesional_.  
 
 De cada **persona** se debe indicar en qué provincia vive. Puede ser atendida por los profesionales que pueden trabajar en la provncia donde vive la persona.
 Cada **institución** tiene una lista de universidades que reconoce. Puede ser atendida por los profesionales que estudiaron en alguna de las universidades reconocidas por la institución.
+Un **club** puede estar en varias provincias. No nos interesa si es cede central o anexo, solo nos interesa saber en que provincias está y podrá ser atendido si al menos 1 profesional puede trabajar en alguna de las provincias donde está el club.
 
 A una empresa se le tiene que poder preguntar si puede _satisfacer_ a un solicitante.
 La condición para esto es que el solicitante pueda ser atendido por, al menos, uno de los profesionales contratados por la empresa. 
@@ -108,7 +109,6 @@ laMejor.darServicio(mirna)
 se indica que se le está dando a Mirna un servicio. Se asume que cada servicio insume una hora de tiempo de un profesional.
 Debe pasar lo siguiente:
 - si el solicitante puede ser atendido (etapa 3), entonces elegir uno cualquiera de los profesionales que puede atenderlo, hacer que ese profesional cobre (etapa 2) su honorario por hora (etapa 1), y agregar al solicitante al conjunto de _clientes_ de la empresa.
-- caso contrario, lanzar un error.
   
 Agregar la posibilidad de preguntarle a una empresa de servicios: cuántos clientes tiene, y si tiene o no como cliente a un determinado solicitante. 
 
@@ -117,6 +117,8 @@ Agregar la posibilidad de preguntarle a una empresa de servicios: cuántos clien
 ## Desafío final - profesional poco atractivo
 Poder preguntarle a una empresa, si dado un profesional, es _poco atractivo_ para la empresa.  
 La condición es: si para cada provincia en la que puede trabajar el profesional, la empresa cuenta con otro que también puede cubrir esa provincia, y que cobra más barato. 
+
+
 
 
 
